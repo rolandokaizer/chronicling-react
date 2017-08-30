@@ -24,12 +24,13 @@ class HeadlineList extends Component {
         }
     }
 
-    onChange(page, pageSize){
-        fetchHeadline(this.props.headline.terms, page);
+    onChange(page){
+        this.props.fetchHeadline(this.props.headline.terms, page);
     }
 
     render() {
-        if (this.props.headline.headline.items) {
+        console.log(this.props.headline.headline);
+        if (this.props.headline.headline.items !== undefined) {
             return (
                 <div>
                     <div style={{marginBottom: 10}}>{this.props.headline.headline.items.map(this.renderHeadline)}</div>
@@ -37,6 +38,7 @@ class HeadlineList extends Component {
                         onChange={this.onChange}
                         pageSize={10}
                         defaultCurrent={1}
+                        current={this.props.headline.page}
                         total={Math.ceil(this.props.headline.headline.totalItems / 10)}/>
                 </div>
             );

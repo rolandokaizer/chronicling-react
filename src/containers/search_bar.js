@@ -35,7 +35,7 @@ class SearchBar extends Component {
     render() {
         return (
             <AutoComplete
-                dataSource={this.props.suggestions[0]}
+                dataSource={this.props.suggestions}
                 style={{ width: 700, margin: '30px 0 10px 0' }}
                 onSelect={this.onSelect}
                 onSearch={_.debounce((value)=>{this.handleSearch(value)}, 300)}

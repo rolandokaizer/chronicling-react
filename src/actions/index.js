@@ -11,8 +11,6 @@ export function fetchHeadline(terms, page = 1, format = 'json'){
     const url = `${BASE_URL}${ENDPOINT_SEARCH}?terms=${terms}&page=${page}&format=${format}`;
     const request = axios.get(url);
 
-    console.log(url);
-
     return {
         type: FETCH_HEADLINE,
         payload: request,
