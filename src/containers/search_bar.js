@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import debounce from 'lodash';
+import _ from 'lodash';
 import {connect} from 'react-redux';
 import AutoComplete from 'antd/lib/auto-complete';
 import 'antd/lib/auto-complete/style/css';
@@ -38,7 +38,7 @@ class SearchBar extends Component {
                 dataSource={this.props.suggestions}
                 style={{ width: 600, margin: '30px 0 10px 0' }}
                 onSelect={this.onSelect}
-                onSearch={debounce((value)=>{this.handleSearch(value)}, 300)}
+                onSearch={_.debounce((value)=>{this.handleSearch(value)}, 300)}
                 placeholder="Search headlines..."
                 allowClear
                 defaultActiveFirstOption={false}
