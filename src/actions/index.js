@@ -8,7 +8,8 @@ export const FETCH_HEADLINE = 'FETCH_HEADLINE';
 export const FETCH_SUGGEST = 'FETCH_SUGGEST';
 
 export function fetchHeadline(terms, page = 1, format = 'json'){
-    const url = `${BASE_URL}${ENDPOINT_SEARCH}?terms=${terms}&page=${page}&format=${format}`;
+    const realPage = Math.ceil(page / 5);
+    const url = `${BASE_URL}${ENDPOINT_SEARCH}?terms=${terms}&page=${realPage}&format=${format}`;
     const request = axios.get(url);
 
     return {
